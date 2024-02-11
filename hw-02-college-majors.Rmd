@@ -306,4 +306,18 @@ ggplot(data = college_recent_grads, mapping(x = median, y = proportion_of_women)
 
 10. Ask a question of interest to you, and answer it using summary statistic(s) and/or visualization(s).
 
+What is the relationship between the major type and the proportion of women.
+
+```{r}
+
+ollege_recent_grads %>%
+  filter(major_type == "stem") 
+
+ggplot(data = college_recent_grads, mapping(x = stem, y = proportion_of_women)) +
+  box(x = "stem",
+      y = "proportion_of_women") +
+  geom_histogram()
+  
+```
+
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
