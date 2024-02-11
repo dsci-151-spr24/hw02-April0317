@@ -139,6 +139,12 @@ college_recent_grads %>%
 
 1.  Using what you've learned so far, arrange the data in descending order with respect to proportion of women in a major, and display only the major, the total number of people with major, and proportion of women. Show only the top 3 majors by adding `top_n(3)` at the end of the pipeline.
 
+```{r}
+college_recent_grads %>%
+  arrange(proportion_of_women) %>%
+  select(major, total_number, proportion_of_women)
+```
+
 ## How do the distributions of median income compare across major categories?
 
 ```{marginfigure}
