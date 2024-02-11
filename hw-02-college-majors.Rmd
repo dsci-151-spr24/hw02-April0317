@@ -206,6 +206,12 @@ college_recent_grads %>%
 
 Now that we've seen the shapes of the distributions of median incomes for each major category, we should have a better idea for which summary statistic to use to quantify the typical median income.
 
+```{r }
+ggplot(data = college_recent_grads, mapping = aes(x = median)) +
+  box(x = "median(major_category)") +
+  geom_histogram(binwidth = 1000)
+```
+
 6.  Which major category has the highest typical (you'll need to decide what this means) median income? Use the partial code below, filling it in with the appropriate statistic and function. Also note that we are looking for the highest statistic, so make sure to arrange in the correct direction.
 
 ```{r eval=FALSE}
