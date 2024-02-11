@@ -167,11 +167,6 @@ The first argument is the data frame, and the next argument gives the mapping of
 
 Let's start simple and take a look at the distribution of all median incomes, without considering the major categories.
 
-```{r fig,height=2}
-ggplot(data = college_recent_grads, mapping = aes(x = median)) +
-  geom_histogram()
-```
-
 Along with the plot, we get a message:
 
     `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -217,8 +212,8 @@ ggplot(data = college_recent_grads, mapping = aes(x = median)) +
 ```{r eval=FALSE}
 college_recent_grads %>%
   group_by(major_category) %>%
-  summarise(___ = ___(median)) %>%
-  arrange(___)
+  summarise(med = median(median)) %>%
+  arrange(major_category)
 ```
 
 7.  Which major category is the least popular in this sample? To answer this question we use a new function called `count`, which first groups the data and then counts the number of observations in each category (see below). Add to the pipeline appropriately to arrange the results so that the major with the lowest observations is on top.
