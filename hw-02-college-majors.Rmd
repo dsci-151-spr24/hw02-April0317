@@ -278,7 +278,8 @@ college_recent_grads %>%
 
 ```{r}
 college_recent_grads %>%
-  filter(major_type == "stem") %>%
+  filter(major_type == "stem",
+         median < med) %>%
   arrange(stem) %>%
   summarise(med = median(median),
             q1 = quantile(median, probs = 0.25),
@@ -291,6 +292,15 @@ college_recent_grads %>%
 ## What types of majors do women tend to major in?
 
 9.  Create a scatterplot of median income vs. proportion of women in that major, coloured by whether the major is in a STEM field or not. Describe the association between these three variables.
+
+```{r}
+
+ggplot(data = college_recent_grads, mapping(x = median, y = proportion_of_women)) +
+  box(x = "median",
+      y = "proportion_of_women") +
+  geom_histogram()
+  
+```
 
 ## Further exploration
 
